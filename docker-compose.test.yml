@@ -1,0 +1,16 @@
+version: '2'
+services:
+  sut:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    depends_on:
+      - web
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+  redis:
+    image: redis
